@@ -69,8 +69,8 @@ const plantImg    = $('plantImg');
 const alertBanner = $('alertBanner');
 const alertText   = $('alertText');
 
-const IMG_NORMAL   = '../images/happy_nbg.png';
-const IMG_STRESSED = '../images/dead_nbg.png';
+const IMG_NORMAL   = 'images/happy_nbg.png';
+const IMG_STRESSED = 'images/dead_nbg.png';
 
 let alertTimer = null;
 const activeAlerts = new Set();

@@ -4,7 +4,7 @@ const SENSOR_META = {
     flow:   { label: 'Water Flow',  absMin: 0,    absMax: 10,   unit: 'L/m',  decimals: 1 },
     level:  { label: 'Water Level', absMin: 0,    absMax: 100,  unit: '%',    decimals: 0 },
     temp:   { label: 'Temperature', absMin: 0,    absMax: 50,   unit: '°C',   decimals: 1 },
-    oxygen: { label: 'Oxygen',      absMin: 0,    absMax: 20,   unit: 'mg/L', decimals: 1 },
+    oxygene: { label: 'oxygene',      absMin: 0,    absMax: 20,   unit: 'mg/L', decimals: 1 },
 };
 
 const FIREBASE_URL = 'https://asma-6cc27-default-rtdb.europe-west1.firebasedatabase.app/data.json';
@@ -26,9 +26,9 @@ function loadPlantData() {
                 if (s && s.now === undefined) {
                     s.now = (s.min + s.max) / 2;
                 }
-                // Ensure oxygen exists even in older saved data
-                if (!parsed.sensors?.oxygen) {
-                    parsed.sensors.oxygen = { min: 6, max: 14, now: 8 };
+                // Ensure oxygene exists even in older saved data
+                if (!parsed.sensors?.oxygene) {
+                    parsed.sensors.oxygene = { min: 6, max: 14, now: 8 };
                 }
             });
             return parsed;
@@ -43,7 +43,7 @@ function loadPlantData() {
             flow:   { min: 1.0, max: 3.0,   now: 1.2  },
             level:  { min: 20,  max: 90,    now: 55   },
             temp:   { min: 18,  max: 24,    now: 22   },
-            oxygen: { min: 6,   max: 14,    now: 8    },
+            oxygene: { min: 6,   max: 14,    now: 8    },
         }
     };
 }
@@ -60,7 +60,7 @@ async function fetchNowValues() {
         flow:   d.flow   ?? d.FLOW   ?? d.waterFlow     ?? null,
         level:  d.level  ?? d.LEVEL  ?? d.waterLevel    ?? null,
         temp:   d.temp   ?? d.TEMP   ?? d.temperature   ?? null,
-        oxygen: d.oxygen ?? d.OXYGEN ?? d.dissolvedO2   ?? null,
+        oxygene: d.oxygene ?? d.oxygene ?? d.dissolvedO2   ?? null,
     };
 }
 

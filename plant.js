@@ -43,7 +43,7 @@ function loadPlantData() {
             flow:   { min: 1.0, max: 3.0,   now: 1.2  },
             level:  { min: 20,  max: 90,    now: 55   },
             temp:   { min: 18,  max: 24,    now: 22   },
-            oxygene: { min: 6,   max: 14,    now: 8    },
+            oxygene: { min: 2,   max: 8,    now: 6    },
         }
     };
 }
